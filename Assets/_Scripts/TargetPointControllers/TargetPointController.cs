@@ -18,6 +18,8 @@ public class TargetPointController : MonoBehaviour
 	private ParticleSystem _selectParticle;
 
 	private Vector3 _defScale;
+
+	private bool _canPass;
 	
 	#endregion Variables
 
@@ -32,13 +34,17 @@ public class TargetPointController : MonoBehaviour
 	{
 		if (Physics.Raycast(transform.position, Vector3.forward, float.MaxValue, laserLayer))
 		{
+			_canPass = false;
 			SetColor(Color.red);
 		}
 		else
 		{
+			_canPass = true;
 			SetColor(Color.green);
 		}
 	}
+
+	public bool CheckCanPass() => _canPass;
 
 	public void PlaySelectParticle()
 	{

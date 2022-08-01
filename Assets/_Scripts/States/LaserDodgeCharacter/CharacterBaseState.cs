@@ -12,4 +12,5 @@ public abstract class CharacterBaseState
     }
 
     public abstract void Update();
+    public abstract void OnTriggerEnter(Collider other);
 }

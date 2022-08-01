@@ -12,7 +12,6 @@ public class LaserDodgeCharacterController : MonoBehaviour
 	[HideInInspector] public LaserDodgeCharacterMovement characterMovement { get; private set; }
 
 	// Private Variables
-
 	private CharacterBaseState _currentState;
 	
 	#endregion Variables
@@ -27,6 +26,8 @@ public class LaserDodgeCharacterController : MonoBehaviour
 	private void Start()
 	{
 		GameEvents.GameStartedEvent += RunState;
+		GameEvents.WinEvent += IdleState;
+		GameEvents.LoseEvent += IdleState;
 	}
 
 	private void Update()
@@ -34,6 +35,11 @@ public class LaserDodgeCharacterController : MonoBehaviour
         _currentState.Update();
     }
 
-    private void IdleState() => _currentState = new CharacterIdleState(this);
+	private void OnTriggerEnter(Collider other)
+	{
+		_currentState.OnTriggerEnter(other);
+	}
+
+	private void IdleState() => _currentState = new CharacterIdleState(this);
     private void RunState() => _currentState = new CharacterRunState(this);
 }

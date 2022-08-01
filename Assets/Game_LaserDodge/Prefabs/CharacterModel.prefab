@@ -1816,10 +1816,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5760258741238965027}
   - component: {fileID: 1806119487605242201}
+  - component: {fileID: 1430552137572155800}
   - component: {fileID: 5222545762113087952}
   - component: {fileID: 5222545762113087954}
   - component: {fileID: 3233074405698803813}
   - component: {fileID: 7810910136485396738}
+  - component: {fileID: 6381598101795281928}
   m_Layer: 0
   m_Name: CharacterModel
   m_TagString: Untagged
@@ -1864,6 +1866,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1430552137572155800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4952653794678897049}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4065819, y: 4.296045, z: 1.1105828}
+  m_Center: {x: 0, y: 2.1153185, z: 0}
 --- !u!114 &5222545762113087952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1988,6 +2003,23 @@ MonoBehaviour:
   laserLayer:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!114 &6381598101795281928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4952653794678897049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b628673a62965b4da21b5d19bae639b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPointControllers:
+  - {fileID: 6458528435375877370}
+  - {fileID: 5155350954446292324}
+  - {fileID: 3242001936612115019}
+  - {fileID: 3397893257400284552}
 --- !u!1 &5049761457741655485
 GameObject:
   m_ObjectHideFlags: 0

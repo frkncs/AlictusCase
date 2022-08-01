@@ -11,4 +11,8 @@ public class CharacterIdleState : CharacterBaseState
     public override void Update()
     {
     }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+    }
 }

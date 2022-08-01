@@ -21,4 +21,20 @@ public class CharacterRunState : CharacterBaseState
             controller.characterMovement.SetNormalSpeed();
         }
     }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("LaserHitCollider"))
+        {
+            if (!controller.characterMovement.CheckAllPointsPassed())
+            {
+                GameEvents.LoseEvent?.Invoke();
+            }
+        }
+        else if (other.CompareTag("LaserPassCollider"))
+        {
+            LaserManager.IncreaseCurrentLaserIndexEvent?.Invoke();
+            other.enabled = false;
+        }
+    }
 }
