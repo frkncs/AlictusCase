@@ -34,6 +34,8 @@ public class CharacterRunState : CharacterBaseState
         else if (other.CompareTag("LaserPassCollider"))
         {
             LaserManager.IncreaseCurrentLaserIndexEvent?.Invoke();
+            EffectManager.PlayCorrectMatchEffect?.Invoke();
+
             other.enabled = false;
         }
     }
