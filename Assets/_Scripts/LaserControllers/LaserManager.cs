@@ -34,10 +34,20 @@ public class LaserManager : MonoBehaviour
 
 	private void IncreaseCurrentLaserIndex()
 	{
-		if (_currentLaserIndex + 1 >= laserControllers.Length) return;
+		if (_currentLaserIndex + 1 >= laserControllers.Length)
+		{
+			StartCoroutine(CallWinEventWithDelay(.6f));
+			return;
+		}
 		
 		_currentLaserIndex++;
 
 		laserControllers[_currentLaserIndex].SetLayerToLaserLayer();
+	}
+
+	private IEnumerator CallWinEventWithDelay(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		GameEvents.WinEvent?.Invoke();
 	}
 }
