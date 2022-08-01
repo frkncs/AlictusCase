@@ -9,7 +9,12 @@ public class LaserDodgeCharacterMovement : MonoBehaviour
 	// Public Variables
 
 	// Private Variables
+	[SerializeField] private LayerMask laserLayer;
+	
 	private float _moveSpeed = 8f;
+	
+	private const float NormalSpeed = 8f;
+	private const float SlowSpeed = 4f;
 
 	#endregion Variables
 
@@ -18,6 +23,16 @@ public class LaserDodgeCharacterMovement : MonoBehaviour
 		transform.position += Vector3.forward * (Time.deltaTime * _moveSpeed);
 	}
 
-	public void SetSlowSpeed() => _moveSpeed /= 2;
-	public void SetNormalSpeed() => _moveSpeed *= 2;
+	public bool CheckCanSlowDown()
+	{
+		if (Physics.Raycast(transform.position, Vector3.forward, 6f, laserLayer))
+		{
+			return true;
+		}
+
+		return false;
+	}
+
+	public void SetSlowSpeed() => _moveSpeed = SlowSpeed;
+	public void SetNormalSpeed() => _moveSpeed = NormalSpeed;
 }

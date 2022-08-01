@@ -17,7 +17,7 @@ TagManager:
   - RingLayer
   - LaserLayer
   - PointLayer
-  - 
+  - LaserHitCollider
   - 
   - 
   - 
