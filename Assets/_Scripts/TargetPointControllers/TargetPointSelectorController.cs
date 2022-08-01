@@ -37,6 +37,7 @@ public class TargetPointSelectorController : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 _selectedPointTrans.position = _selectedPointController.connectedRigTransform.position;
+                _selectedPointController.PlayUnselectedAnimation();
                 ResetSelectedPointInfo();
             }
         }

@@ -47,7 +47,19 @@ public class TargetPointController : MonoBehaviour
 
 	public void PlaySelectedAnimation()
 	{
-		transform.PlayScaleUpDownAnim(_defScale, 1.6f, .15f, Ease.OutExpo, Ease.Linear);
+		transform.DOKill();
+		transform.localScale = _defScale;
+		
+		transform.DOScale(_defScale * 1.45f, .15f)
+			.SetEase(Ease.OutExpo);
+	}
+
+	public void PlayUnselectedAnimation()
+	{
+		transform.DOKill();
+		
+		transform.DOScale(_defScale, .15f)
+			.SetEase(Ease.Linear);
 	}
 	
 	private void SetColor(Color color)
